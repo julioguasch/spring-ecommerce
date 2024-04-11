@@ -1,21 +1,30 @@
 package com.curso.ecommerce.springecommerce.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="productos")
 public class Producto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
     private String descripcion;
     private String imagen;
     private Double precio;
+    @ManyToOne
+    private Usuario usuario;
 
     public Producto() {
     }
 
-    public Producto(Integer id, String nombre, String descripcion, String imagen, Double precio) {
+    public Producto(Integer id, String nombre, String descripcion, String imagen, Double precio, Usuario usuario) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.imagen = imagen;
         this.precio = precio;
+        this.usuario = usuario;
     }
 
     public Integer getId() {
@@ -56,6 +65,14 @@ public class Producto {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
