@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Pricing example · Bootstrap v5.1</title>
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{css/estilo.css}" rel="stylesheet">
+    <!-- Favicons -->
+
+    <meta name="theme-color" content="#7952b3">
+
+</head>
+<body>
+
+<div class="container py-3">
+    <div th:include="administrador/template_admin.html::header"></div>
+
+    <main>
+        <form th:action="@{/productos/save}" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                <input type="text" class="form-control" name="nombre">
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripcion</label>
+                <input type="text" class="form-control" name="descripcion">
+            </div>
+            <div class="mb-3">
+                <label for="imagen" class="form-label">Imagen</label>
+                <input type="text" class="form-control" name="imagen">
+            </div>
+            <div class="mb-3">
+                <label for="precio" class="form-label">precio</label>
+                <input type="text" class="form-control" name="precio">
+            </div>
+
+            <button type="submit" class="btn btn-primary">guardar</button>
+        </form>
+    </main>
+
+    <div th:include="administrador/template_admin.html::footer"></div>
+</div>
+
+<script th:src="@{js/bootstrap.bundle.min.js}"></script>
+
+</body>
+</html>
